@@ -1,0 +1,24 @@
+.calculator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.screen{
+    align-self: flex-start;
+}
+#s-container{
+    display: flex;
+}
+.s{
+    height: 100px;
+    width: 200px;
+}
+#row1-container, #row2-container, #row3-container, #row4-container{
+    display: flex;
+
+}
+.row1, .row2, .row3, .row4{
+    height: 100px;
+    width: 100px;
+}
