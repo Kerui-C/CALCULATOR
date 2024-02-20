@@ -14,7 +14,7 @@ body{
     display: flex;
     text-align: right;
     width: 350px;
-    height: 50spx;
+    height: 50px;
     padding: 20px;
     border: 5px solid black;
     font-size: larger;
@@ -22,18 +22,16 @@ body{
 #s-container{
     display: flex;
 }
-.s, .z, .y{
-    height: 100px;
-    width: 150px;
-    font-size: larger;
-}
 #row1-container, #row2-container, #row3-container, #row4-container{
     display: flex;
 
 }
-.row1, .row2, .row3, .row4, .y{
+button{
     height: 100px;
     width: 100px;
+}
+.s, .z{
+    font-weight: bolder;
 }
 .s{
     background-color: chocolate;

@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 case "x":
                     return Number(first_half) * Number(second_half);
                 case "÷":
-                    return Number(first_half) / Number(second_half);
+                    if(Number(second_half) != 0){return Number(first_half) / Number(second_half);}
+                    return "you can't use a calculator properly???";
                 default:
                     return first_half+second_half
             }
