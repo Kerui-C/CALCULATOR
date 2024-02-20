@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", (event) => {  
     const buttons = document.querySelectorAll(".b");
     const screen = document.querySelector(".w");
-    const solve = document.getElementById("enter")
+    const solve = document.getElementById("enter");
+    const remove = document.getElementById("clear");
     function position(string){
-        let Key = ["+", "/", "-", "*"];
+        let Key = ["+", "÷", "-", "x"];
         for(let i = 0; i < string.length; i++){
             if(Key.includes(string[i])){
                 return i;
@@ -12,35 +13,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return false;
     }
     function Better_eval(Expression){
-        if(position(Expression) != 0){
-            let first_half = Expression.slice(0, (position(Expression)));
-            let second_half = Expression.slice(position(Expression)+1);
-            if(position(first_half) === false && position(second_half) === false){
-                switch(Expression[i]){
-                    case "+":
-                        return Number(first_half)+Number(second_half);
-                    case "-":
-                        return Number(first_half)-Number(second_half);
-                    case "*":
-                        return Number(first_half)*Number(second_half);
-                    case "/":
-                        return Number(first_half)/Number(second_half);
-                }
+        let first_half = Expression.slice(0, (position(Expression)));
+        let second_half = Expression.slice(position(Expression)+1);
+        console.log(first_half);
+        console.log(second_half);
+        if(position(first_half) === false && position(second_half) === false){
+            switch(Expression[position(Expression)]){
+                case "+":
+                    return Number(first_half) + Number(second_half);
+                case "-":
+                    return Number(first_half) - Number(second_half);
+                case "x":
+                    return Number(first_half) * Number(second_half);
+                case "÷":
+                    return Number(first_half) / Number(second_half);
+                default:
+                    return first_half+second_half
             }
-            return "failed half has op";
         }
-        return "failed no op";
-    };
+        return "failed half has op";
+    }
+
     let curr_exp = "";
     buttons.forEach(function(x){
         x.addEventListener("click", function(){
             screen.innerHTML = screen.innerHTML + this.innerHTML;
-            curr_exp += this.id;
+            curr_exp += this.innerHTML;
             console.log(curr_exp)
         })
     });
     solve.addEventListener("click", function(){
         screen.innerHTML = Better_eval(screen.innerHTML);
+    })
+    remove.addEventListener("click", function(){
+        screen.innerHTML = "";
+        curr_exp = "";
     })
 });
 
